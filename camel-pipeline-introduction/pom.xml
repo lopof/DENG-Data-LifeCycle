@@ -84,7 +84,7 @@
                 <artifactId>camel-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
-                    <mainClass>org.apache.camel.example.java8.MyApplication</mainClass>
+                    <mainClass>org.apache.camel.example.java8.SamplePipeline</mainClass>
                 </configuration>
             </plugin>
             <plugin>

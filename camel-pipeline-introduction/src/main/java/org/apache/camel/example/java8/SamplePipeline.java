@@ -26,10 +26,10 @@ import org.apache.camel.main.Main;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class MyApplication {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyApplication.class);
+public final class SamplePipeline {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SamplePipeline.class);
 
-    private MyApplication() {
+    private SamplePipeline() {
     }
 
     public static void main(String[] args) throws Exception {
