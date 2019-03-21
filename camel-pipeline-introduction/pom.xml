@@ -24,7 +24,7 @@
 
     <groupId>org.apache.camel.example</groupId>
     <version>2.22.0</version>
-    <artifactId>camel-example-java8</artifactId>
+    <artifactId>camel-pipeline-introduction</artifactId>
 
     <packaging>jar</packaging>
     <name>Camel :: Example :: Java8</name>
@@ -86,6 +86,11 @@
                 <configuration>
                     <mainClass>org.apache.camel.example.java8.MyApplication</mainClass>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.hawt</groupId>
+                <artifactId>hawtio-maven-plugin</artifactId>
+                <version>2.5.0</version>
             </plugin>
         </plugins>
     </build>
