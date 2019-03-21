@@ -1,3 +1,4 @@
+package ch.bfh.deng.data.etl.sampleroutes;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
