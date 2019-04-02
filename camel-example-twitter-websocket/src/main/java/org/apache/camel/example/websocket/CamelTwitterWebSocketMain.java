@@ -17,6 +17,8 @@
 package org.apache.camel.example.websocket;
 
 import org.apache.camel.main.Main;
+import com.cybozu.labs.langdetect.*;
+
 
 /**
  * A main to start this example.
@@ -30,14 +32,15 @@ public final class CamelTwitterWebSocketMain {
 
     // This uses the Twitter 'cameltweet' account for testing purposes.
     // do NOT use this twitter account in your applications!
-    private static String consumerKey = "NMqaca1bzXsOcZhP2XlwA";
-    private static String consumerSecret = "VxNQiRLwwKVD0K9mmfxlTTbVdgRpriORypnUbHhxeQw";
-    private static String accessToken = "26693234-W0YjxL9cMJrC0VZZ4xdgFMymxIQ10LeL1K8YlbBY";
-    private static String accessTokenSecret = "BZD51BgzbOdFstWZYsqB5p5dbuuDV12vrOdatzhY4E";
+    private static String consumerKey = "3XmdSRnIwQHRQTFzScaj2Hbm3";
+    private static String consumerSecret = "aNOehkntPBN2pEDNu5fktW1vMT14WmG0bFf83OD91h0NCcU7nV";
+    private static String accessToken = "939207014319906817-AqzrU2pRc4HY8WyV3WJwKa9cUGUkcZq";
+    private static String accessTokenSecret = "4Lx4D3M65Dj6x1ADtuSW7Rgnm7UgTS2BAHe9aohpXr8Vx";
 
     private CamelTwitterWebSocketMain() {
         // to pass checkstyle we have a private constructor
     }
+
 
     public static void main(String[] args) throws Exception {
         System.out.println("\n\n\n\n");
@@ -46,6 +49,12 @@ public final class CamelTwitterWebSocketMain {
         System.out.println("Press ctrl+c to stop this example");
         System.out.println("===============================================");
         System.out.println("\n\n\n\n");
+
+
+        LangDetect lang = new LangDetect();
+        lang.init("/Users/tom/Documents/BFH/6.Semester/DataEngineering/langdetect-09-13-2011/profiles");
+
+        System.out.println(lang.detect("Deutschland ist schön"));
 
         // create a new Camel Main so we can easily start Camel
         Main main = new Main();
@@ -61,7 +70,8 @@ public final class CamelTwitterWebSocketMain {
         // poll for gaga, every 5nd second
         // twitter rate limits 180 per 15 min, so that is 0.2/sec, eg 1/5sec.
         // so to be safe we do 6 seconds
-        route.setSearchTerm("gaga");
+        route.setSearchTerm("Rammstein");
+
         route.setDelay(6000);
 
         // web socket on port 9090
