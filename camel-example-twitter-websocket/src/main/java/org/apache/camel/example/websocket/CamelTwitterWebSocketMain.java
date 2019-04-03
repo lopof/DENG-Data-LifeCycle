@@ -51,11 +51,6 @@ public final class CamelTwitterWebSocketMain {
         System.out.println("\n\n\n\n");
 
 
-        LangDetect lang = new LangDetect();
-        lang.init("/Users/tom/Documents/BFH/6.Semester/DataEngineering/langdetect-09-13-2011/profiles");
-
-        System.out.println(lang.detect("Deutschland ist schön"));
-
         // create a new Camel Main so we can easily start Camel
         Main main = new Main();
 

@@ -19,12 +19,17 @@ package org.apache.camel.example.websocket;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.twitter.search.TwitterSearchComponent;
 import org.apache.camel.component.websocket.WebsocketComponent;
+import com.cybozu.labs.langdetect.*;
+
 
 /**
  * A Camel route that updates from twitter all tweets using having the search term.
  * And post the changes to web-socket, that can be viewed from a web page
  */
+
 public class TwitterWebSocketRoute extends RouteBuilder {
+
+
 
     private int port = 9090;
     private String searchTerm;
@@ -105,10 +110,18 @@ public class TwitterWebSocketRoute extends RouteBuilder {
         tc.setConsumerKey(consumerKey);
         tc.setConsumerSecret(consumerSecret);
 
+        LangDetect lang = new LangDetect();
+        lang.init("/Users/tom/Documents/BFH/6.Semester/DataEngineering/langdetect-09-13-2011/profiles");
+
         // poll twitter search for new tweets
         fromF("twitter-search://%s?delay=%s", searchTerm, delay)
             .to("log:tweet")
-            // and push tweets to all web socket subscribers on camel-tweet
+                .filter(method(LangDetect.class, "detect").isEqualTo("de"))
+                // and push tweets to all web socket subscribers on camel-tweet
             .to("websocket:camel-tweet?sendToAll=true");
     }
+
+
+
+
 }
